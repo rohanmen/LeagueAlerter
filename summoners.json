@@ -1,15 +1,16 @@
-{
-	[
-		{
-		 "summoner_name" : "crimsonking3",
-		 "summoner_id" : none,
-		 "rank" : "n/a"
-		},
-
-		{
-		 "summoner_name" : "ass shaver",
-		 "summoner_id" : none,
-		 "rank" : "n/a"
-		}
-	]
-}
+[
+    {
+        "tier": "GOLD", 
+        "division": "III", 
+        "region": "na", 
+        "summoner_id": "55534592", 
+        "summoner_name": "crimsonking3"
+    }, 
+    {
+        "tier": "GOLD", 
+        "division": "III", 
+        "region": "na", 
+        "summoner_id": "30600913", 
+        "summoner_name": "ass shaver"
+    }
+]

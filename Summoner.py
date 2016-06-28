@@ -13,6 +13,9 @@ class Summoner:
 		self.revisionDate = revisionDate
 		self.summonerLevel = summonerLevel
 
+	def print_self(self):
+		util.log(self.summonerId + " " + self.name)
+
 def writeToFile(summoner):
 	util.log(summoner)
 
@@ -27,8 +30,9 @@ def parseJson(data, name):
 	mySummonerLevel = jsonData[name]["summonerLevel"]
 
 	summoner = Summoner(myId, myName, myProfileIconId, myRevisonDate, mySummonerLevel)
-	util.log(summoner.summonerId)
-	util.log(summoner.name)
+	#util.log(summoner.summonerId)
+	#util.log(summoner.name)
+	return summoner
 
 def getSummonerByName(region, name):
 
@@ -39,21 +43,22 @@ def getSummonerByName(region, name):
 	url = util.replace(url, "{region}", region)
 	url = util.replace(url, "{summoner_name}", name)
 	url = util.replace(url, "{api_key}", ApiKey)
-	url = util.replace(url, "{version}", util.getCurrentVersion())
+	url = util.replace(url, "{version}", util.getSummonerVersion())
 	#util.log(url)
 
 	summonerFound = False
 
-	try:
-		response = urllib2.urlopen(url)
-		data = response.read()
-		parseJson(data, name)
-		summonerFound = True
-	except:
-		util.log("Summoner not Found")
+	#try:
+	response = urllib2.urlopen(url)
+	data = response.read()
+	summoner = parseJson(data, name)
+	summonerFound = True
+	return summoner
+	#except:
+	util.log("Summoner not Found")
 
 
 
-getSummonerByName("na", "raju")
+#getSummonerByName("na", "crimsonking3")
 
 

@@ -2,7 +2,8 @@ import string
 
 API_KEY = "5bb381bb-530e-4e03-a14a-cb7e6ab3e69a"
 BASE_URL = "https://global.api.pvp.net/"
-CURRENT_VERSION = "2.5"
+SUMMONER_VERSION = "1.4"
+STATS_VERSION = "2.5"
 
 def log(data):
 	print data
@@ -16,5 +17,8 @@ def getBaseUrl():
 def replace(original, tag, value):
 	return string.replace(original, tag, value)
 
-def getCurrentVersion():
-	return CURRENT_VERSION
+def getSummonerVersion():
+	return SUMMONER_VERSION
+
+def getStatsVersion():
+	return STATS_VERSION

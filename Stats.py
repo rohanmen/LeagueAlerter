@@ -14,10 +14,10 @@ class Stats:
 
 
 	def print_self(self):
-		print "summonerId = " + self.summonerId
-		print "divison = " + self.division
-		print "tier = " + self.tier
-		print "leaguePoints = " + self.leaguePoints
+		util.log("summonerId = " + self.summonerId)
+		util.log("divison = " + self.division)
+		util.log("tier = " + self.tier)
+		util.log("leaguePoints = " + self.leaguePoints)
 
 def parseJson(data, summonerId):
 	jsonData = json.loads(data)
@@ -36,7 +36,8 @@ def parseJson(data, summonerId):
 					stats.division = e["division"]
 					stats.leaguePoints = str(e["leaguePoints"])
 
-	stats.print_self()
+	#stats.print_self()
+	return stats
 
 
 def getSummonerStats(summonerId, region):
@@ -47,13 +48,14 @@ def getSummonerStats(summonerId, region):
 	url = util.replace(url, "{region}", region)
 	url = util.replace(url, "{summoner_id}", summonerId)
 	url = util.replace(url, "{api_key}", ApiKey)
-	url = util.replace(url, "{version}", util.getCurrentVersion())
+	url = util.replace(url, "{version}", util.getStatsVersion())
 
 	#try:
 	response = urllib2.urlopen(url)
 	data = response.read()
-	parseJson(data, summonerId)
+	stats = parseJson(data, summonerId)
+	return stats
 	#except:
 		#print response.getcode()
 
-getSummonerStats("32280833", "na")
+#getSummonerStats("32280833", "na")
